@@ -24,14 +24,16 @@
                     required>
                 </lightning-combobox>
             </div>
-            <div class="slds-docked-form-footer">
-                <lightning-button
-                    variant="brand"
-                    label="Next"
-                    icon-name="utility:chevronright"
-                    icon-position="right"
-                    onclick={HandleNext1}>
-            </lightning-button>
+            <div class="slds-docked-form-footer slds-grid slds-gutters slds-gutters_direct-xx-small slds-grid_align-end">
+                <span class="slds-col">
+                    <lightning-button
+                        variant="brand"
+                        label="Next"
+                        icon-name="utility:chevronright"
+                        icon-position="right"
+                        onclick={HandleNext1}>
+                    </lightning-button>
+                </span>
             </div>
         </article>
     </template>
@@ -70,14 +72,102 @@
                     required>
                 </lightning-combobox>
             </div>
-            <div class="slds-docked-form-footer">
-                <lightning-button
-                    variant="brand"
-                    label="Next"
-                    icon-name="utility:chevronright"
-                    icon-position="right"
-                    onclick={HandleNext1}>
-            </lightning-button>
+            <div class="slds-docked-form-footer slds-grid slds-gutters slds-gutters_direct-xx-small slds-grid_align-end">
+                <span class="slds-col">
+                    <lightning-button
+                        variant="neutral"
+                        label="Back"
+                        icon-name="utility:chevronleft"
+                        icon-position="left"
+                        onclick={HandleBack2}>
+                    </lightning-button>
+                </span>
+                <span class="slds-col">
+                    <lightning-button
+                        variant="brand"
+                        label="Next"
+                        icon-name="utility:chevronright"
+                        icon-position="right"
+                        onclick={HandleNext2}>
+                    </lightning-button>
+                </span>
+
+            </div>
+        </article>
+    </template>
+    <template if:true={screen3}>
+        <article>
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="action:quote" alternative-text="Submit your message"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                  <h2 class="slds-card__header-title">            
+                      <span>Send a secure message.</span>
+                  </h2>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner slds-form-element slds-has-flexi-truncate slds-is-resizable">
+                <lightning-combobox
+                    name="ContactsCombo3"
+                    label="Contacts"
+                    placeholder="Select a contact..."
+                    value = {contactValue}
+                    options = {getContactData}
+                    onchange = {handleContactSelect}
+                    required
+                    disabled>
+                </lightning-combobox>
+                <lightning-combobox
+                    name="CasesCombo3"
+                    label="Cases"
+                    placeholder="Select a case..."
+                    value = {caseValue}
+                    options = {getCaseData}
+                    onchange = {handleCaseSelect}
+                    required
+                    disabled>
+                </lightning-combobox>
+                    <div class="slds-p-around_small">
+                        <lightning-input 
+                            type="text" 
+                            label="Subject" 
+                            placeholder="Enter your Subject..." 
+                            onchange={handleSubject}
+                            required>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-p-horizontal_small">
+                        <lightning-textarea
+                            name="message"
+                            label="Message"
+                            placeholder="Enter your Message..."
+                            onchange={handleMessage}
+                            required>
+                        </lightning-textarea>
+                    </div>
+            </div>
+            <div class="slds-docked-form-footer slds-grid slds-gutters slds-gutters_direct-xx-small slds-grid_align-end">
+                <span class="slds-col">
+                    <lightning-button
+                        variant="neutral"
+                        label="Back"
+                        icon-name="utility:chevronleft"
+                        icon-position="left"
+                        onclick={HandleBack3}>
+                    </lightning-button>
+                </span>
+                <span class="slds-col">
+                    <lightning-button
+                        variant="brand"
+                        label="Send"
+                        icon-name="utility:send"
+                        icon-position="right"
+                        onclick={HandleNext3}>
+                    </lightning-button>
+                </span>
             </div>
         </article>
     </template>

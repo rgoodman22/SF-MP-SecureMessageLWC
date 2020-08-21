@@ -7,9 +7,10 @@ export default class SecureMessage extends LightningElement {
     @track screen1 = true;
     @track screen2 = false;
     @track screen3 = false;
+    @track screen4 = false;
 
-    @track contactValue = 'Select a contact...';
-    @track caseValue = 'Select a case';
+    @track contactValue = null;
+    @track caseValue = null;
 
     @track contactData;
     @track contactError;
@@ -47,12 +48,36 @@ export default class SecureMessage extends LightningElement {
     }
 
     HandleNext1(event) {
-        this.screen1=false;
-        this.screen2=true;
+        if (this.contactValue != null) {
+            this.screen1=false;
+            this.screen2=true;
+        }
     }
 
     handleCaseSelect(event) {
         this.caseValue=event.detail.value;
+    }
+
+    HandleNext2(event) {
+        if(this.caseValue != null) {
+            this.screen2 = false;
+            this.screen3 = true;
+        }
+    }
+
+    HandleBack2(event) {
+        this.screen2 = false;
+        this.screen1 = true;
+        this.contactValue = null;
+    }
+
+    HandleNext3(event) {
+    }
+
+    HandleBack3(event) {
+        this.screen3=false;
+        this.screen2=true;
+        this.caseValue=null;
     }
 
     get getContactData() {
