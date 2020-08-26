@@ -18,8 +18,8 @@ export default class SecureMessage extends LightningElement {
 
     @track contactValue = null;
     @track caseValue = null;
-    @track subjectValue = null;
-    @track messageValue = null;
+    @api subjectValue;
+    @api messageValue;
     @track messageStatus = null;
 
     @track contactData;
@@ -48,10 +48,6 @@ export default class SecureMessage extends LightningElement {
             this.caseData = undefined;
         }
     }
-
-
-
-
 
     handleContactSelect(event){
         this.contactValue=event.detail.value;
@@ -164,4 +160,5 @@ export default class SecureMessage extends LightningElement {
             return this.contactError;
         }
     }
+
 }

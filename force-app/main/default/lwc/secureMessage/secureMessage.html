@@ -134,17 +134,19 @@
                             label="Subject" 
                             placeholder="Enter your Subject..." 
                             onchange={handleSubject}
+                            value = {subjectValue}
                             required>
                         </lightning-input>
                     </div>
                     <div class="slds-p-horizontal_small">
-                        <lightning-textarea
+                        <lightning-input-rich-text
                             name="message"
                             label="Message"
                             placeholder="Enter your Message..."
                             onchange={handleMessage}
+                            value = {messageValue}
                             required>
-                        </lightning-textarea>
+                        </lightning-input-rich-text>
                     </div>
             </div>
             <div class="slds-docked-form-footer slds-grid slds-gutters slds-gutters_direct-xx-small slds-grid_align-end">

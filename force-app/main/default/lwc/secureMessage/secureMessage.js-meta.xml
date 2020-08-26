@@ -7,4 +7,10 @@
   <targets>
       <target>lightning__UtilityBar</target>
   </targets>
+  <targetConfigs>
+    <targetConfig targets="lightning__UtilityBar">
+        <property name="subjectValue" type="String" label="Default Subject" description="Automatically input a custom subject"/>
+        <property name="messageValue" type="String" label="Default Message" description="Automatically input a custom Message"/>
+    </targetConfig>
+  </targetConfigs>
 </LightningComponentBundle>
